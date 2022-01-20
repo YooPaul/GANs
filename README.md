@@ -6,8 +6,8 @@ Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.
 
 ## Implementations
 
-* [DCGAN](https://github.com/YooPaul/DCGANs/)
-* [Wasserstein GAN](https://github.com/YooPaul/WGANs/)
+* [DCGAN](https://github.com/YooPaul/GANs/DCGAN/)
+* [Wasserstein GAN](https://github.com/YooPaul/GANs/WGAN/)
 * [Wasserstein GAN with Gradient Penalty](https://github.com/YooPaul/GANs/)
 
 
