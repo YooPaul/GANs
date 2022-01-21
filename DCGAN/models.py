@@ -30,7 +30,7 @@ class Discriminator(nn.Module):
     def __init__(self, input_c):
         super(Discriminator, self).__init__()
 
-        self.dimensions = [8, 16, 32, 64]
+        self.dimensions = [64, 128, 256, 512]
 
         layers = [nn.Sequential(nn.Conv2d(input_c, self.dimensions[0], 4, 2, 1),
                                 nn.LeakyReLU(0.2))]
