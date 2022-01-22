@@ -99,7 +99,7 @@ for epoch in range(EPOCHS):
                 break
 
         # Generator objective:
-        # Maximize log probability of samples from the fake distribution
+        # Maximize critic score given samples from the fake distribution
         z = torch.rand((BATCH_SIZE, z_dim, 1, 1)).to(device)
         fake_samples = generator(z)
         optim_g.zero_grad()

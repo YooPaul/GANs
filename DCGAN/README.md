@@ -2,7 +2,7 @@
 
 Open in Colab!
 [![Open DCGAN in
-Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YooPaul/GANs/DCGAN/blob/master/DCGAN.ipynb)<br>
+Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YooPaul/GANs/blob/master/DCGAN/DCGAN.ipynb)<br>
 
 # Training Objective
 
