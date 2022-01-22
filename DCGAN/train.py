@@ -1,3 +1,12 @@
+import torch
+import torch.nn.functional as F
+from torchvision import transforms, utils
+import torch.utils.tensorboard as tensorboard
+import torchvision.datasets as datasets
+
+from models import Generator, Discriminator
+from util import init_weights
+
 EPOCHS = 3
 BATCH_SIZE = 128
 MODEL_DATA = "DCGAN_model.pt"
@@ -18,7 +27,7 @@ preprocess = transforms.Compose([
     transforms.Normalize(mean=[0.5], std=[0.5]) #mean=[0.5, 0.5, 0.5], std=[0.5, 0.5, 0.5])
 ])
 
-train_dataset = datasets.CelebA('.', transform=preprocess, download=True)
+train_dataset = datasets.MNIST('.', transform=preprocess, download=True)
 train = torch.utils.data.DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 
 generator = Generator(z_dim, image_channels).to(device)
