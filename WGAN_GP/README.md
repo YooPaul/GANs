@@ -5,6 +5,9 @@
 Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YooPaul/GANs/blob/master/WGAN_GP.ipynb)<br>
 -->
 
+## Fixed noise transformation throughout training
+
+![training gif]()
 
 ## References
 
