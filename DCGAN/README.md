@@ -1,6 +1,6 @@
 # Deep Convolutional GAN
 
-Open in Colab!
+Open in Colab!<br>
 [![Open DCGAN in
 Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YooPaul/GANs/blob/master/DCGAN/DCGAN.ipynb)<br>
 
