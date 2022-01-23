@@ -1,8 +1,10 @@
 # WGAN-GP
 
-
+ 
+<!--
 [![Open WGAN_GP in
 Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YooPaul/GANs/blob/master/WGAN_GP/WGAN_GP_playground.ipynb)<br>
+-->
 
 ## Fixed noise transformation throughout training
 
