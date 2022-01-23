@@ -4,6 +4,8 @@
 Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YooPaul/GANs/blob/master/.ipynb)<br>
 -->
 
+PyTorch implementations of select crucial papers in stabalizing the learning of generative adversarial nets.  
+
 ## Implementations
 
 * [DCGAN](https://github.com/YooPaul/GANs/tree/main/DCGAN)
