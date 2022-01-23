@@ -7,7 +7,7 @@ Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.
 
 ## Fixed noise transformation throughout training
 
-![training gif]()
+![training gif](https://github.com/YooPaul/GANs/tree/main/WGAN_GP/imgs/wgan_gp.gif)
 
 ## References
 
