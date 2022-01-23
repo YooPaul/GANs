@@ -49,6 +49,7 @@ optim_g = torch.optim.Adam(generator.parameters(), lr=lr, betas=(0, 0.9))
 optim_d = torch.optim.Adam(discriminator.parameters(), lr=lr, betas=(0, 0.9))
 step = 0
 
+# If previous checkpoint exists, load model
 if os.path.isfile(MODEL_DATA):
     checkpoint = torch.load(MODEL_DATA)
     generator.load_state_dict(checkpoint['g_model_state_dict'])
@@ -70,6 +71,8 @@ for epoch in range(EPOCHS):
     it = iter(enumerate(train))
     out = next(it, None)
     while out != None:
+
+        # Critic training loop
         for _ in range(n_critic):
             idx, (real_samples, _) = out
             real_samples = real_samples.to(device)
@@ -87,6 +90,7 @@ for epoch in range(EPOCHS):
             if out is None:
                 break
 
+        # Generator training
         # Generator objective:
         # Maximize log probability of samples from the fake distribution
         z = torch.rand((BATCH_SIZE, z_dim, 1, 1)).to(device)
@@ -99,6 +103,7 @@ for epoch in range(EPOCHS):
         optim_g.step()
 
         step += 1
+
         # Print loss and save model
         if (step - 1) % 3 == 0:
             f_summary_writer.add_scalar('Generator loss', generator_loss.item(), global_step=step)
