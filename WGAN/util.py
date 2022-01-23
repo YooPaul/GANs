@@ -16,3 +16,10 @@ def clip_weights(m, c=0.01):
         m.weight.data.clamp_(-c, c) # in-place operation
     if hasattr(m, 'bias') and m.bias is not None:
         m.bias.data.clamp_(-c, c) # in-place operation
+
+def wasserstein_loss(real_samples, fake_samples, discriminator):
+    scores_f = discriminator(fake_samples) # N x 1
+    scores_r = discriminator(real_samples) # N x 1
+
+    discriminator_loss = - (scores_r.mean() - scores_f.mean())
+    return discriminator_loss

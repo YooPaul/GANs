@@ -5,7 +5,7 @@ import torch.utils.tensorboard as tensorboard
 import torchvision.datasets as datasets
 
 from models import Generator, Discriminator
-from util import init_weights, clip_weights
+from util import init_weights, clip_weights, wasserstein_loss
 
 EPOCHS = 5
 BATCH_SIZE = 64
@@ -79,14 +79,11 @@ for epoch in range(EPOCHS):
 
             z = torch.rand((BATCH_SIZE, z_dim, 1, 1)).to(device)
             fake_samples = generator(z)
-            
-            scores_f = discriminator(fake_samples) # N x 1
-            scores_r = discriminator(real_samples) # N x 1
 
             # Discriminator objective:
             # Maximize the difference in critic scores for samples from the real distribution and generator's distribution
             optim_d.zero_grad()
-            discriminator_loss = - (scores_r.mean() - scores_f.mean())
+            discriminator_loss = wasserstein_loss(real_samples, fake_samples, discriminator)
             discriminator_loss.backward()#retain_graph=True) # need to retain graph in order to backpropogate through preds_f again later 
             
             optim_d.step()
@@ -114,19 +111,6 @@ for epoch in range(EPOCHS):
         if (step - 1) % 3 == 0:
             f_summary_writer.add_scalar('Generator loss', generator_loss.item(), global_step=step)
             r_summary_writer.add_scalar('Discriminator  loss', discriminator_loss.item(), global_step=step)
-            '''
-            print()
-            print('Step:', step)
-            print('Generator Loss:', generator_loss.item())
-            print('Discriminator Loss:', discriminator_loss.item())
-            '''
-        
-            '''
-            torch.save(the_model.state_dict(), PATH)
-
-            the_model = TheModelClass(*args, **kwargs)
-            the_model.load_state_dict(torch.load(PATH))
-            '''
         
         if (step - 1) % 100 == 0:
             print('Epoch: %d/%d\tBatch: %04d/%d' % (epoch, EPOCHS, idx, len(train)))
@@ -149,11 +133,5 @@ for epoch in range(EPOCHS):
 
                 r_summary_writer.add_image('Real', img_grid_real, global_step=step)
                 f_summary_writer.add_image('Fake', img_grid_fake, global_step=step)
-
-                #with real_summary_writer.as_default():
-                #    summary.image('real', img_grid_real, step=step)
-
-
-        
 
 
