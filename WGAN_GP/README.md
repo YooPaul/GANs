@@ -6,7 +6,7 @@
 Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YooPaul/GANs/blob/master/WGAN_GP/WGAN_GP_playground.ipynb)<br>
 -->
 
-## Fixed noise transformation throughout training
+## Generator output over training time given fixed noise as input
 
 ![training gif](https://github.com/YooPaul/GANs/blob/main/WGAN_GP/imgs/wgan_gp.gif)
 
